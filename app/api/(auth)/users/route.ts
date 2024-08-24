@@ -2,7 +2,6 @@ import { connect } from "@/app/lib/db";
 import { Users } from "@/app/lib/models/users";
 import { NextResponse } from "next/server";
 import { Types } from "mongoose";
-import { stat } from "fs";
 
 const ObjectId = require("mongoose").Types.ObjectId;
 

@@ -1,5 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
+// Lançamento de Entradas e Saídas
 export const EntriesSchema = new Schema(
 	{
 		entry: {

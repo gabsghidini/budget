@@ -1,7 +1,8 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import { CategoriesContext } from "../contexts/categories.context";
-import { EntriesContext } from "../contexts/entries.context";
+import { CategoriesContext } from "../../contexts/categories.context";
+import { EntriesContext } from "../../contexts/entries.context";
+import Image from "next/image";
 
 const Dashboard = () => {
 	const { categories } = useContext(CategoriesContext);
@@ -14,7 +15,11 @@ const Dashboard = () => {
 		}
 	}, [categories, entries]);
 
-	if (isLoading) return <h1>Loading...</h1>;
+	if (isLoading) {
+		return (
+			<Image src="/loading.gif" alt="Loading" width={100} height={100} />
+		);
+	}
 
 	return (
 		<div>

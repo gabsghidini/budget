@@ -11,8 +11,16 @@ export const EntriesSchema = new Schema(
 			type: Number,
 			required: true,
 		},
-		category: { type: Schema.Types.ObjectId, ref: "Categories" },
-		createdBy: { type: Schema.Types.ObjectId, ref: "Users" },
+		category: {
+			type: Schema.Types.ObjectId,
+			ref: "Categories",
+			required: true,
+		},
+		createdBy: {
+			type: Schema.Types.ObjectId,
+			ref: "Users",
+			required: true,
+		},
 	},
 	{
 		timestamps: true,

@@ -15,7 +15,7 @@ export default function RootLayout({
 		<UsersProvider>
 			<CategoriesProvider>
 				<EntriesProvider>
-					<html lang="en">
+					<html lang="pt-br">
 						<body className={inter.className}>
 							<GlobalStyles />
 							{children}

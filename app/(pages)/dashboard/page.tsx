@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { CategoriesContext } from "../../contexts/categories.context";
 import { EntriesContext } from "../../contexts/entries.context";
 import Image from "next/image";
+import * as S from "./styles";
+import { Header } from "@/app/components/header";
 
 const Dashboard = () => {
 	const { categories } = useContext(CategoriesContext);
@@ -17,12 +19,20 @@ const Dashboard = () => {
 
 	if (isLoading) {
 		return (
-			<Image src="/loading.gif" alt="Loading" width={100} height={100} />
+			<S.Container>
+				<Image
+					src="/loading.gif"
+					alt="Loading"
+					width={100}
+					height={100}
+				/>
+			</S.Container>
 		);
 	}
 
 	return (
-		<div>
+		<>
+			<Header />
 			<h1>Dashboard</h1>
 			<h2>Categorias</h2>
 			<p>Categorias: {categories.length}</p>
@@ -41,7 +51,7 @@ const Dashboard = () => {
 					<p>{entry.category}</p>
 				</div>
 			))}
-		</div>
+		</>
 	);
 };
 

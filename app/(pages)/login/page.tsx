@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import * as S from "./styles";
@@ -28,24 +29,19 @@ const Login = () => {
 			<S.VerticalContainer>
 				<S.Title>Login</S.Title>
 				<S.Form onSubmit={handleSubmit}>
-					<S.Label>
-						Email:
-						<S.Input
-							type="email"
-							value={email}
-							onChange={handleEmailChange}
-						/>
-					</S.Label>
-					<S.Label>
-						Password:
-						<S.Input
-							type="password"
-							value={password}
-							onChange={handlePasswordChange}
-						/>
-					</S.Label>
-
-					<S.Button type="submit">Login</S.Button>
+					<S.Label>Email:</S.Label>
+					<S.Input
+						type="email"
+						value={email}
+						onChange={handleEmailChange}
+					/>
+					<S.Label>Password:</S.Label>
+					<S.Input
+						type="password"
+						value={password}
+						onChange={handlePasswordChange}
+					/>
+					<S.Button type="submit">Entrar</S.Button>
 				</S.Form>
 			</S.VerticalContainer>
 		</S.Container>

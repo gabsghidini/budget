@@ -6,6 +6,9 @@ import Image from "next/image";
 import * as S from "./styles";
 import { Header } from "@/app/components/header";
 
+/* Components */
+import { FinancialSummary } from "@/app/components/financialSummary";
+
 const Dashboard = () => {
 	const { categories } = useContext(CategoriesContext);
 	const { entries } = useContext(EntriesContext);
@@ -33,24 +36,16 @@ const Dashboard = () => {
 	return (
 		<>
 			<Header />
-			<h1>Dashboard</h1>
-			<h2>Categorias</h2>
-			<p>Categorias: {categories.length}</p>
-			{categories.map((category) => (
-				<div key={category.id}>
-					<p>{category.name}</p>
-					<p>{category.description}</p>
-				</div>
-			))}
-			<h2>Entradas</h2>
-			<p>Entradas: {entries.length}</p>
-			{entries.map((entry) => (
-				<div key={entry.id}>
-					<p>{entry.entry}</p>
-					<p>{entry.amount}</p>
-					<p>{entry.category}</p>
-				</div>
-			))}
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					flexDirection: "row",
+				}}
+			>
+				<aside style={{ width: "10rem" }}>aside</aside>
+				<FinancialSummary />
+			</div>
 		</>
 	);
 };

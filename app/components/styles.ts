@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-/* Header */
+/* Interfaces */
+/* Financial Summary */
+type FinancialSummaryContainerProps = {
+	isActive: boolean;
+};
 
+/* Header */
 export const Header = styled.header`
 	display: flex;
 	justify-content: center;
@@ -42,7 +47,6 @@ export const NavContainer = styled.nav`
 	max-width: 80%;
 `;
 
-/* Financial Summary */
 export const FinancialSummaryContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -98,16 +102,18 @@ export const FinancialNav = styled.nav`
 	}
 `;
 
-export const FinancialCard = styled.div`
+export const FinancialCard = styled.div<FinancialSummaryContainerProps>`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
+	border-left: 6 px solid ${(props) => (props.isActive ? "green" : "gray")};
 `;
 
 export const FinancialCardTitle = styled.h3`
 	font-size: 1rem;
 	font-weight: bold;
 	color: var(--slate-900);
+	margin: 0;
 `;

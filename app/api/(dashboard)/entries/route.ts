@@ -43,3 +43,34 @@ export const POST = async (req: Request) => {
 		);
 	}
 };
+
+export const DELETE = async (req: Request) => {
+	try {
+		const { id } = await req.json();
+		await connect();
+
+		const entry = await Entries.findByIdAndDelete(ObjectId(id));
+
+		if (!entry) {
+			return new NextResponse(
+				JSON.stringify({
+					message: `Entry with id ${id} not found`,
+				}),
+				{
+					status: 404,
+				}
+			);
+		}
+
+		return new NextResponse(JSON.stringify(entry), { status: 200 });
+	} catch (error: any) {
+		return new NextResponse(
+			JSON.stringify({
+				message: `Error while deleting Entries: ${error.message}`,
+			}),
+			{
+				status: 500,
+			}
+		);
+	}
+};

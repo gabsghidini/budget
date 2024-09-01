@@ -40,7 +40,10 @@ export const FinancialSummary = () => {
 			</S.FinancialNav>
 			<S.FinancialSummaryContainer>
 				{entriesList.map((entry) => (
-					<S.FinancialCard key={entry.id}>
+					<S.FinancialCard
+						key={entry.id}
+						isActive={entry.category === "Entrada"}
+					>
 						<aside>
 							<S.FinancialCardTitle>
 								{entry.entry}

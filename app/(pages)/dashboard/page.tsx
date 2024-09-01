@@ -24,6 +24,7 @@ const Dashboard = () => {
 		return (
 			<S.Container>
 				<Image
+					unoptimized
 					src="/loading.gif"
 					alt="Loading"
 					width={100}

@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 /* Interfaces */
 /* Financial Summary */
 type FinancialSummaryContainerProps = {
-	isActive: boolean;
+	active: boolean;
 };
 
 /* Header */
@@ -96,7 +97,7 @@ export const FinancialNav = styled.nav`
 		}
 
 		li:hover {
-			background-color: var(--pink-700);
+			background-color: var(--pink-800);
 			color: var(--white);
 		}
 	}
@@ -108,7 +109,7 @@ export const FinancialCard = styled.div<FinancialSummaryContainerProps>`
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
-	border-left: 6 px solid ${(props) => (props.isActive ? "green" : "gray")};
+	border-left: 6px solid ${(props) => (props.active ? "green" : "gray")};
 `;
 
 export const FinancialCardTitle = styled.h3`
@@ -116,4 +117,12 @@ export const FinancialCardTitle = styled.h3`
 	font-weight: bold;
 	color: var(--slate-900);
 	margin: 0;
+`;
+
+export const TrashIcon = styled(FaRegTrashAlt)`
+	cursor: pointer;
+	background-color: var(--slate-200);
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	color: var(--black);
 `;

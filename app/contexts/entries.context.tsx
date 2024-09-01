@@ -32,20 +32,23 @@ export const EntriesProvider = ({ children }: i.Children) => {
 
 	const updateEntry = async (entry: i.Entry): Promise<void> => {
 		try {
-			const response = await api.put(`/entries/${entry.id}`, entry);
+			const response = await api.put(`/entries/${entry._id}`, entry);
 			setEntries((prevEntries) =>
-				prevEntries.map((e) => (e.id === entry.id ? response.data : e))
+				prevEntries.map((e) =>
+					e._id === entry._id ? response.data : e
+				)
 			);
 		} catch (error) {
 			console.error(error);
 		}
 	};
 
-	const deleteEntry = async (id: number): Promise<void> => {
+	const deleteEntry = async (id: string): Promise<void> => {
 		try {
-			await api.delete(`/entries/${id}`);
+			await api.delete(`/entries?id=${id}`);
+
 			setEntries((prevEntries) =>
-				prevEntries.filter((entry) => entry.id !== id)
+				prevEntries.filter((entry) => entry._id !== id)
 			);
 		} catch (error) {
 			console.error(error);

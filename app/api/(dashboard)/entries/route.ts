@@ -46,23 +46,29 @@ export const POST = async (req: Request) => {
 
 export const DELETE = async (req: Request) => {
 	try {
-		const { id } = await req.json();
+		const { searchParams } = new URL(req.url);
+		const id = searchParams.get("id");
+
+		if (!ObjectId.isValid(id)) {
+			return new NextResponse(JSON.stringify({ message: "Invalid ID" }), {
+				status: 400,
+			});
+		}
+
 		await connect();
 
-		const entry = await Entries.findByIdAndDelete(ObjectId(id));
+		const entry = await Entries.findByIdAndDelete(id);
 
 		if (!entry) {
 			return new NextResponse(
-				JSON.stringify({
-					message: `Entry with id ${id} not found`,
-				}),
+				JSON.stringify({ message: "Entry not found" }),
 				{
 					status: 404,
 				}
 			);
 		}
 
-		return new NextResponse(JSON.stringify(entry), { status: 200 });
+		return new NextResponse(null, { status: 204 });
 	} catch (error: any) {
 		return new NextResponse(
 			JSON.stringify({

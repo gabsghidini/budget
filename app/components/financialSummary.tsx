@@ -4,7 +4,7 @@ import * as S from "./styles";
 import { CategoriesContext } from "../contexts/categories.context";
 
 export const FinancialSummary = () => {
-	const { entries } = useContext(EntriesContext);
+	const { entries, deleteEntry } = useContext(EntriesContext);
 	const { categories } = useContext(CategoriesContext);
 	const [entriesList, setEntriesList] = useState(entries);
 	const total = entries.reduce((acc, item) => {
@@ -41,8 +41,8 @@ export const FinancialSummary = () => {
 			<S.FinancialSummaryContainer>
 				{entriesList.map((entry) => (
 					<S.FinancialCard
-						key={entry.id}
-						isActive={entry.category === "Entrada"}
+						key={entry._id}
+						active={entry.category == "Entrada" ? true : false}
 					>
 						<aside>
 							<S.FinancialCardTitle>
@@ -51,7 +51,21 @@ export const FinancialSummary = () => {
 							<span>{entry.category}</span>
 						</aside>
 						<p>{entry.amount}</p>
-						<button>Delete</button>
+						<S.TrashIcon
+							onClick={async () => {
+								if (entry._id) {
+									await deleteEntry(entry._id);
+
+									setEntriesList((prevEntries) =>
+										prevEntries.filter(
+											(e) => e._id !== entry._id
+										)
+									);
+								}
+							}}
+						>
+							Delete
+						</S.TrashIcon>
 					</S.FinancialCard>
 				))}
 			</S.FinancialSummaryContainer>

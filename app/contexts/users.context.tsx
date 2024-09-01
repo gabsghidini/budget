@@ -39,7 +39,7 @@ export const UsersProvider = ({ children }: i.Children) => {
 
 	const deleteUser = async (id: number): Promise<void> => {
 		try {
-			await api.delete(`/users/${id}`);
+			await api.delete(`/users?userId=${id}`);
 			setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
 		} catch (error) {
 			console.error(error);

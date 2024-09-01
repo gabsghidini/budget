@@ -26,7 +26,7 @@ export interface UsersContextValue {
 
 /* --- Entry --- */
 export interface Entry {
-	id: number | null;
+	_id: string | null;
 	entry: string | null;
 	amount: number | null;
 	category: string | null;
@@ -38,7 +38,7 @@ export interface EntriesContextValue {
 	createEntry: (entry: Entry) => Promise<void>;
 	readEntries: () => Promise<void>;
 	updateEntry: (entry: Entry) => Promise<void>;
-	deleteEntry: (id: number) => Promise<void>;
+	deleteEntry: (id: string) => Promise<void>;
 }
 
 /* --- Category --- */

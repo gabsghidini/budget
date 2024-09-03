@@ -12,7 +12,7 @@ export const EntriesProvider = ({ children }: i.Children) => {
 		readEntries();
 	}, []);
 
-	const createEntry = async (entry: i.Entry): Promise<void> => {
+	const createEntry = async (entry: i.NewEntry): Promise<void> => {
 		try {
 			const response = await api.post("/entries", entry);
 			setEntries((prevEntries) => [...prevEntries, response.data]);

@@ -8,6 +8,7 @@ import { Header } from "@/app/components/header";
 
 /* Components */
 import { FinancialSummary } from "@/app/components/financialSummary";
+import Aside from "@/app/components/aside";
 
 const Dashboard = () => {
 	const { categories } = useContext(CategoriesContext);
@@ -44,7 +45,7 @@ const Dashboard = () => {
 					flexDirection: "row",
 				}}
 			>
-				<aside style={{ width: "10rem" }}>aside</aside>
+				<Aside />
 				<FinancialSummary />
 			</div>
 		</>

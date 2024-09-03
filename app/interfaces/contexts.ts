@@ -33,9 +33,16 @@ export interface Entry {
 	createdBy: string | null;
 }
 
+export interface NewEntry {
+	entry: string | null;
+	amount: number | null;
+	category: string | null;
+	createdBy: string | null;
+}
+
 export interface EntriesContextValue {
 	entries: Entry[];
-	createEntry: (entry: Entry) => Promise<void>;
+	createEntry: (entry: NewEntry) => Promise<void>;
 	readEntries: () => Promise<void>;
 	updateEntry: (entry: Entry) => Promise<void>;
 	deleteEntry: (id: string) => Promise<void>;

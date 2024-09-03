@@ -53,6 +53,7 @@ export const FinancialSummaryContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: auto;
 
 	div {
 		display: flex;
@@ -125,4 +126,67 @@ export const TrashIcon = styled(FaRegTrashAlt)`
 	padding: 0.5rem;
 	border-radius: 0.25rem;
 	color: var(--black);
+`;
+
+/* Aside */
+export const AsideContainer = styled.form`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	padding: 1rem;
+	margin: 1rem 3rem 0 0;
+	border-radius: 0.25rem;
+	border: 1px solid var(--slate-100);
+	width: 25.56rem;
+
+	label {
+		font-size: 0.75rem;
+		color: var(--slate-500);
+		padding: 0;
+	}
+
+	textarea,
+	input {
+		padding: 0.5rem;
+		border: 1px solid var(--slate-200);
+		border-radius: 0.25rem;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+	select {
+		padding: 0.5rem;
+		border: 1px solid var(--slate-200);
+		border-radius: 0.25rem;
+		width: auto;
+	}
+
+	small {
+		font-size: 0.5rem;
+		color: var(--slate-500);
+	}
+`;
+
+export const VerticalContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 0 0 0;
+`;
+
+export const HorizontalContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+`;
+
+export const Button = styled.button`
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	border: none;
+	background-color: var(--pink-800);
+	color: var(--white);
+	cursor: pointer;
+	margin-top: 0.5rem;
 `;
